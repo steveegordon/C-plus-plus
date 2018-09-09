@@ -31,13 +31,20 @@ typedef unsigned short int USHORT;
 const USHORT LUCKYNUMBER = 7;
 enum Days { Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday};
 enum Bool {FALSE, TRUE};
-// function headers
+// function prototypes
 void DemonstrationFunction();
 int add(int num1, int num2);
 void favoriteDay();
 void varSize();
 void printAll();
 int areaCube(int length, int width = 50, int height = 1);
+// function polymorphism prototypes
+int square(int);
+long square(long);
+double square(double);
+float square(float);
+inline int doubleNum(int target);
+int fibonacci(int seqnum);
 // Void functions are strictly side effect functions
 //void DemonstrationFunction()
 //{
@@ -49,10 +56,46 @@ int areaCube(int length, int width = 50, int height = 1);
 //{
 //    return (a + b);
 //}
+//FUNCTION POLYMORPHISM
+//WILL INTELLIGENTLY SELECT FUNCTION BASED UPON INPUT
+//int square(int number)
+//{
+//    return (number * number);
+//}
+//long square(long number)
+//{
+//    return (number * number);
+//}
+//double square(double number)
+//{
+//    return (number * number);
+//}
+//float square(float number)
+//{
+//    return (number * number);
+//}
+//int areaCube(int length, int width, int height)
+//{
+//    return (length * width * height);
+//}
 
-int areaCube(int length, int width, int height)
+//INLINE FUNCTION EXAMPLE
+//ONLY USE FOR SMALL ONE OR TWO LINERS
+//int doubleNum(int target)
+//{
+//    return (target * 2);
+//}
+
+int fibonacci(int seqnum)
 {
-    return (length * width * height);
+    if (seqnum < 3)
+    {
+        return 1;
+    }
+    else
+    {
+        return (fibonacci(seqnum - 2) + fibonacci(seqnum - 1));
+    }
 }
 
 // If/Else and/or operators
@@ -124,7 +167,8 @@ int main()
 //    cout << "In main\n";
 //    DemonstrationFunction();
 //    cout << "Back in main\n";
-    int a, b, c, area;
+    int target;
+//    int a, b, c, area;
 //    cout << "Enter two numbers: ";
 //    cin >> a;
 //    cin >> b;
@@ -145,6 +189,19 @@ int main()
     cout << "The area of that cube is equal to: " << area;
     cout << " units.\n";
 */
+
+//USE OF AN INLINE FUNCTION
+    cout << "Enter a number: ";
+    cin >> target;
+    
+//    target = doubleNum(target);
+//    cout << "The Double is " << target << ".";
+//    target = doubleNum(target);
+//    cout << "\nThe Quadruple is " << target << ".";
+//    target = doubleNum(target);
+//    cout << "\nThe Octuple is " << target << "." << endl;
+    target = fibonacci(target);
+    cout << "The Fibonacci number at the position you chose is " << target << "." << endl;
 //////int function always returns a number
     return 0;
 }
